@@ -7,7 +7,7 @@ db = SQLAlchemy()
 def create_app():
     app = Flask(__name__)
     
-    # Usando chave diretamente (sem prefixo)
+    # Chave já configurada diretamente (sem variáveis de ambiente)
     app.config['SECRET_KEY'] = '0697c4d4309a5a2a46459c3614b84051'
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///app.db')
     if app.config['SQLALCHEMY_DATABASE_URI'].startswith('postgres://'):
