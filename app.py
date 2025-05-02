@@ -1,67 +1,50 @@
-from flask import Flask
+from flask import Flask, render_template_string
+import os
 
 app = Flask(__name__)
 
+# Configurar chave secreta
+app.config['SECRET_KEY'] = '0697c4d4309a5a2a46459c3614b84051'
+
 @app.route('/')
 def home():
-    return """
+    return render_template_string("""
     <!DOCTYPE html>
     <html>
     <head>
         <title>Ética Pericial</title>
         <style>
-            body { font-family: Arial; background: #f0f0f0; margin: 0; padding: 20px; }
-            .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-            h1 { color: #003366; text-align: center; }
-            footer { margin-top: 20px; text-align: center; font-size: 12px; color: #666; }
+            body { font-family: Arial; background: #f8f9fa; margin: 0; padding: 0; }
+            .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+            header { background: #003366; color: white; padding: 20px; text-align: center; }
+            .content { background: white; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-top: 20px; }
+            footer { text-align: center; margin-top: 20px; font-size: 14px; color: #6c757d; }
         </style>
     </head>
     <body>
-        <div class="container">
+        <header>
             <h1>Sistema Ética Pericial</h1>
-            <p>Bem-vindo ao sistema de gerenciamento de laudos periciais.</p>
-            <p>Plataforma desenvolvida para a Associação
-# Acesse a pasta do projeto
-cd ~/etica-pericial
-
-# Remova a estrutura complexa anterior
-rm -rf app
-rm -f wsgi.py
-
-# Criar um arquivo app.py na raiz (isto é crítico!)
-cat > app.py << 'EOF'
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Ética Pericial</title>
-        <style>
-            body { font-family: Arial; background: #f0f0f0; margin: 0; padding: 20px; }
-            .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-            h1 { color: #003366; text-align: center; }
-            footer { margin-top: 20px; text-align: center; font-size: 12px; color: #666; }
-        </style>
-    </head>
-    <body>
+        </header>
         <div class="container">
-            <h1>Sistema Ética Pericial</h1>
-            <p>Bem-vindo ao sistema de gerenciamento de laudos periciais.</p>
-            <p>Plataforma desenvolvida para a Associação Brasileira de Perícias.</p>
-            <hr>
-            <p>Status: <strong>Operacional</strong></p>
+            <div class="content">
+                <h2>Bem-vindo ao Sistema</h2>
+                <p>Este é o sistema de gerenciamento de laudos periciais da ABP.</p>
+                <p>Status: <strong>Implantação concluída com sucesso!</strong></p>
+                
+                <h3>Módulos Planejados:</h3>
+                <ul>
+                    <li>Cadastro de Laudos</li>
+                    <li>Gestão de Perícias</li>
+                    <li>Relatórios e Estatísticas</li>
+                </ul>
+            </div>
             <footer>
-                <p>Desenvolvido por Adiel Rios - adiel.rios@abp.org.br</p>
+                <p>Desenvolvido por Adiel Rios | adiel.rios@abp.org.br</p>
             </footer>
         </div>
     </body>
     </html>
-    """
+    """)
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
