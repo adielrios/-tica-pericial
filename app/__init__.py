@@ -11,25 +11,21 @@ def create_app():
         <head>
             <title>Ética Pericial</title>
             <style>
-                body { font-family: Arial; margin: 0; padding: 0; background: #f5f5f5; }
-                .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-                header { background: #00406c; color: white; padding: 20px; text-align: center; }
-                .content { background: white; border-radius: 5px; padding: 20px; margin-top: 20px; }
-                footer { text-align: center; margin-top: 20px; font-size: 12px; color: #666; }
+                body { font-family: Arial; background: #f0f0f0; margin: 0; padding: 20px; }
+                .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+                h1 { color: #003366; text-align: center; }
+                footer { margin-top: 20px; text-align: center; font-size: 12px; color: #666; }
             </style>
         </head>
         <body>
-            <header>
-                <h1>Ética Pericial</h1>
-            </header>
             <div class="container">
-                <div class="content">
-                    <h2>Sistema de Assistência Pericial</h2>
-                    <p>Sistema implantado com sucesso!</p>
-                    <p>Em breve: módulos de gestão de laudos e avaliações.</p>
-                </div>
+                <h1>Sistema Ética Pericial</h1>
+                <p>Bem-vindo ao sistema de gerenciamento de laudos periciais.</p>
+                <p>Plataforma desenvolvida para a Associação Brasileira de Perícias.</p>
+                <hr>
+                <p>Status: <strong>Operacional</strong></p>
                 <footer>
-                    <p>Desenvolvido por Adiel Rios - contato: adiel.rios@abp.org.br</p>
+                    <p>Desenvolvido por Adiel Rios - adiel.rios@abp.org.br</p>
                 </footer>
             </div>
         </body>
