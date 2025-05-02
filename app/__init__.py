@@ -1,25 +1,11 @@
-from flask import Flask, render_template_string
-from flask_sqlalchemy import SQLAlchemy
-import os
-
-db = SQLAlchemy()
+from flask import Flask
 
 def create_app():
     app = Flask(__name__)
     
-    # Chave já configurada diretamente
-    app.config['SECRET_KEY'] = '0697c4d4309a5a2a46459c3614b84051'
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///app.db')
-    if app.config['SQLALCHEMY_DATABASE_URI'].startswith('postgres://'):
-        app.config['SQLALCHEMY_DATABASE_URI'] = app.config['SQLALCHEMY_DATABASE_URI'].replace('postgres://', 'postgresql://', 1)
-    
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    
-    db.init_app(app)
-    
     @app.route('/')
     def home():
-        return render_template_string("""
+        return """
         <!DOCTYPE html>
         <html>
         <head>
@@ -38,9 +24,9 @@ def create_app():
             </header>
             <div class="container">
                 <div class="content">
-                    <h2>Sistema de Gerenciamento de Laudos</h2>
-                    <p>Implantação realizada com sucesso!</p>
-                    <p>Domínio configurado e sistema operacional.</p>
+                    <h2>Sistema de Assistência Pericial</h2>
+                    <p>Sistema implantado com sucesso!</p>
+                    <p>Em breve: módulos de gestão de laudos e avaliações.</p>
                 </div>
                 <footer>
                     <p>Desenvolvido por Adiel Rios - contato: adiel.rios@abp.org.br</p>
@@ -48,6 +34,6 @@ def create_app():
             </div>
         </body>
         </html>
-        """)
+        """
     
     return app
